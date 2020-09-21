@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categorias;
+use Session;
 
 class CategoriasController extends Controller
 {
@@ -60,7 +61,8 @@ class CategoriasController extends Controller
      */
     public function show($id)
     {
-        //
+        Session::put('categorias_id',$id);
+        return redirect('/admin/subcategorias');
     }
 
     /**
