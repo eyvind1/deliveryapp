@@ -25,7 +25,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
     Route::resource('/pedidos', 'App\Http\Controllers\Admin\PedidosController', ['as'=>'admin']);
     Route::resource('/detalles', 'App\Http\Controllers\Admin\DetallesController', ['as'=>'admin']);
     Route::resource('/publicaciones', 'Admin\PublicacionesController', ['as'=>'admin']);
-    Route::resource('/portadas', 'Admin\PortadasController', ['as'=>'admin']);
+    Route::resource('/portadas', 'App\Http\Controllers\Admin\PortadasController', ['as'=>'admin']);
 });
 
 

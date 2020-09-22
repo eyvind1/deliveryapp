@@ -9,6 +9,7 @@ class Categorias extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $fillable = [
         'slug', 'title', 'description', 'nombre', 'descripcion', 'urlfoto', 'visitas', 'orden', 'portada',
     ];
