@@ -17,4 +17,8 @@ class Categorias extends Model
     public function subcategorias(){
         return $this->hasMany("App\Models\Subcategorias");
     }
+
+    public function publicaciones(){
+        return $this->hasMany("App\Models\Publicaciones");
+    }
 }
