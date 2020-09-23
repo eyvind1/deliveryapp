@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
+Route::group(['prefix'=>'admin','middleware'=>'role:admin'], function(){
     Route::resource('/usuarios', 'App\Http\Controllers\Admin\UsuariosController', ['as'=>'admin']);
     Route::resource('/categorias', 'App\Http\Controllers\Admin\CategoriasController', ['as'=>'admin']);
     Route::resource('/subcategorias', 'App\Http\Controllers\Admin\SubcategoriasController', ['as'=>'admin']);
@@ -26,6 +26,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'], function(){
     Route::resource('/detalles', 'App\Http\Controllers\Admin\DetallesController', ['as'=>'admin']);
     Route::resource('/publicaciones', 'App\Http\Controllers\Admin\PublicacionesController', ['as'=>'admin']);
     Route::resource('/portadas', 'App\Http\Controllers\Admin\PortadasController', ['as'=>'admin']);
+});
+
+Route::group(['prefix'=>'cliente','middleware'=>'role:cliente'], function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 });
 
 
