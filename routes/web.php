@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/','FrontController@index');
+Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
 
 Route::group(['prefix'=>'admin','middleware'=>'role:admin'], function(){
     Route::resource('/usuarios', 'App\Http\Controllers\Admin\UsuariosController', ['as'=>'admin']);
