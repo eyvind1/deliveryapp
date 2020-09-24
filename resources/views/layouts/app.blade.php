@@ -36,18 +36,13 @@
                     <ul class="navbar-nav mr-auto">
                     </ul>
                     <ul class="navbar-nav mx-auto">
+                    @forelse($menu as $r)
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Inicio</a>
+                            <a class="nav-link" href="/{{$r->slug}}">{{$r->nombre}}</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Menu 1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Menu 2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Menu 3</a>
-                        </li>
+                    @empty
+                    
+                    @endforelse
                     </ul>
 
                     <!-- Right Side Of Navbar -->
