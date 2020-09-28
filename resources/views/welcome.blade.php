@@ -2,15 +2,18 @@
 @section('content')
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="https://i.ytimg.com/vi/J_5pQQHEJgY/maxresdefault.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://i.ytimg.com/vi/psB5hMlBQig/maxresdefault.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://i.ytimg.com/vi/5Ct8LhW0wf0/maxresdefault.jpg" alt="Third slide">
-    </div>
+    
+    @forelse ($portadas as $r)
+      
+      <div class="carousel-item @if ($loop->index == 0) active @endif">
+        <img src="/img/portadas/{{$r->urlfoto}}" class="d-block w-100" alt="{{$r->frase}}">
+      </div>
+        
+    @empty
+    @endforelse
+    
+    
+
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
