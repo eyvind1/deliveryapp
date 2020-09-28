@@ -31,14 +31,14 @@
         @forelse ($productos as $pr)
         <div class="col-sm-3">
           <div class="card shadow">
-            <a href="/img/productos/{{$pr->slug}}" title="{{$pr->nombre}}">
+            <a href="/{{$pr->slug}}" title="{{$pr->nombre}}">
               <img src="/img/productos/{{$pr->urlfoto}}" class="card-img-top" alt="Comprar {{$pr->nombre}}">
             </a> 
               <div class="card-body"> 
                 <p class="text-center">$. {{$pr->precio}}</p>
               </div>
               <div class="div-card-footer bg-warning">
-                <a href="/productos/{{$pr->slug}}" class="btn btn-success rounded-pill btn-block">{{$pr->nombre}}</a>
+                <a href="/{{$pr->slug}}" class="btn btn-success rounded-pill btn-block">{{$pr->nombre}}</a>
               </div>
           </div>
         </div> 

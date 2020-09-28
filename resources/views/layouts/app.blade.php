@@ -38,7 +38,7 @@
                     <ul class="navbar-nav mx-auto">
                     @forelse($menu as $r)
                         <li class="nav-item">
-                            <a class="nav-link" href="/{{$r->slug}}">{{$r->nombre}}</a>
+                            <a class="nav-link" href="/productos/{{$r->slug}}">{{$r->nombre}}</a>
                         </li>
                     @empty
                     
