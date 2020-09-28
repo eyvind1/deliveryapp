@@ -15,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/','FrontController@index');
 Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
+Route::get('/productos/{categoria}', [App\Http\Controllers\FrontController::class, 'categoria']);
+Route::get('/productos/{categoria}/{subcategoria}', [App\Http\Controllers\FrontController::class, 'subcategoria']);
+Route::get('/{producto}', [App\Http\Controllers\FrontController::class, 'producto']);
+Route::get('/blog', [App\Http\Controllers\FrontController::class, 'blog']);
+Route::get('/blog/{publicacion}', [App\Http\Controllers\FrontController::class, 'publicacion']);
+Route::get('/tienda', [App\Http\Controllers\FrontController::class, 'tienda']);
+Route::get('/direccion', [App\Http\Controllers\FrontController::class, 'direccion']);
 
 Route::group(['prefix'=>'admin','middleware'=>'role:admin'], function(){
     Route::resource('/usuarios', 'App\Http\Controllers\Admin\UsuariosController', ['as'=>'admin']);
@@ -37,3 +44,4 @@ Route::group(['prefix'=>'cliente','middleware'=>'role:cliente'], function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
