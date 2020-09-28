@@ -27,33 +27,27 @@
 <div class="container pb-5">
     <div class="row justify-content-center">
         <div class="col-sm-12 mt-5 mb-5"><h1 class = "text-center">Delivery de abarrotes</h1></div>
-        <div class="col-sm-4">
-            <div class="card shadow">
-                <img src="https://th.bing.com/th/id/OIP.zLiX546tpWeqiyEgXMT4_gHaFs?pid=Api&rs=1" class="card-img-top">
-                <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aspernatur minus, dicta perspiciatis nesciunt velit odit. Modi nihil quia provident nam fugiat eum fuga, maiores ratione explicabo illum quisquam commodi?</div>
-                <div class="div-card-footer">
-                    <a href="/" class="btn btn-outline-success rounded-pill btn-block">Producto</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card shadow">
-                <img src="https://th.bing.com/th/id/OIP.zLiX546tpWeqiyEgXMT4_gHaFs?pid=Api&rs=1" class="card-img-top">
-                <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aspernatur minus, dicta perspiciatis nesciunt velit odit. Modi nihil quia provident nam fugiat eum fuga, maiores ratione explicabo illum quisquam commodi?</div>
-                <div class="div-card-footer">
-                    <a href="/" class="btn btn-outline-success rounded-pill btn-block">Producto</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card shadow">
-                <img src="https://th.bing.com/th/id/OIP.zLiX546tpWeqiyEgXMT4_gHaFs?pid=Api&rs=1" class="card-img-top">
-                <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aspernatur minus, dicta perspiciatis nesciunt velit odit. Modi nihil quia provident nam fugiat eum fuga, maiores ratione explicabo illum quisquam commodi?</div>
-                <div class="div-card-footer">
-                    <a href="/" class="btn btn-outline-success rounded-pill btn-block">Producto</a>
-                </div>
-            </div>
-        </div>
+        
+        @forelse ($productos as $pr)
+        <div class="col-sm-3">
+          <div class="card shadow">
+            <a href="/img/productos/{{$pr->slug}}" title="{{$pr->nombre}}">
+              <img src="/img/productos/{{$pr->urlfoto}}" class="card-img-top" alt="Comprar {{$pr->nombre}}">
+            </a> 
+              <div class="card-body"> 
+                <p class="text-center">$. {{$pr->precio}}</p>
+              </div>
+              <div class="div-card-footer bg-warning">
+                <a href="/productos/{{$pr->slug}}" class="btn btn-success rounded-pill btn-block">{{$pr->nombre}}</a>
+              </div>
+          </div>
+        </div> 
+      
+        @empty
+          <p>Productos vacios</p>
+        @endforelse
+        
+        
     </div>
 </div>
 @endsection
