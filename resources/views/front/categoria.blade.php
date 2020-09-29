@@ -14,10 +14,10 @@
                 @endforelse
             </ul>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="row justify-content-center">
             @forelse ($productos as $r)
-                <div class="col-sm-3 mt-5 mb-5">
+                <div class="col-sm-4 mt-5 mb-5">
                     <div class="card">
                         <div class="card shadow">
                             <a href="/{{$r->slug}}" title="{{$r->nombre}}">
@@ -28,6 +28,13 @@
                               </div>
                               <div class="div-card-footer bg-warning">
                                 <a href="/{{$r->slug}}" class="btn btn-success rounded-pill btn-block">{{$r->nombre}}</a>
+                                <form action="{{route('carrito.agregar')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$r->id}}">
+                                    <input type="number" value="1" name="quantity" min="1" max="10">
+                                    <input type="submit" value="AGREGAR" class="btn btn-info rounded-pill mx-auto d-block">
+                                
+                                </form>
                               </div>
                           </div>
                     </div>
@@ -38,7 +45,7 @@
             @endforelse
             </div>    
         </div>
-
+        @include('front.resumen')
         <div class="col-sm-10 mt-5">
             <h2>Novedades</h2>
             

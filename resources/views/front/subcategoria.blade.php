@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         
-        <div class="col-md-10">
+        <div class="col-md-8">
             <div class="row justify-content-center">
             @forelse ($subcategoria->productos as $r)
-                <div class="col-sm-3 mt-5 mb-5">
+                <div class="col-sm-4 mt-5 mb-5">
                     <div class="card">
                         <div class="card shadow">
                             <a href="/{{$r->slug}}" title="{{$r->nombre}}">
@@ -28,6 +28,8 @@
             @endforelse
             </div>    
         </div>
+
+        @include('front.resumen')
 
         <div class="col-sm-10 mt-5">
           <h2>Novedades</h2>

@@ -40,6 +40,8 @@ Route::group(['prefix'=>'admin','middleware'=>'role:admin'], function(){
     Route::resource('/portadas', 'App\Http\Controllers\Admin\PortadasController', ['as'=>'admin']);
 });
 
+Route::post('/carrito/agregar',[App\Http\Controllers\CarritoController::class, 'agregar'])->name('carrito.agregar');
+
 Route::group(['prefix'=>'cliente','middleware'=>'role:cliente'], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

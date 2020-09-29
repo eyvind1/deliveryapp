@@ -15,12 +15,10 @@
               
             
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-5">
           <a href="" class="btn btn-success align-ident-center">Comprar</a>
         </div>
-        <div class="col-sm-3">
-          carrito
-        </div>
+        @include('front.resumen')
         <div class="col-sm-12">
           <h2>Productos que te pueden interesar</h2>
           <div class="div-row">
