@@ -38,6 +38,26 @@
             @endforelse
             </div>    
         </div>
+
+        <div class="col-sm-10 mt-5">
+            <h2>Novedades</h2>
+            
+              @forelse ($blog as $r)
+              <div class="row mt-3 mb-3">
+                <div class="col-sm-4">
+                  <a href="/blog/{{$r->slug}}"><img src="/img/publicaciones/{{$r->urlfoto}}" alt="{{$r->nombre}}" class="img-fluid"></a>
+                </div>
+                <div class="col-sm-8">
+                  <h3><a href="/blog/{{$r->slug}}">{{$r->nombre}}</a></h3>
+                  <p>{{$r->description}}</p>
+                  <p class="small">{{$r->created_at->diffForHumans()}}</p>
+                </div>
+              </div>
+              @empty
+                <p>...</p>
+              @endforelse
+            
+          </div>
     </div>
 </div>
 @endsection

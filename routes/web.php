@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route::get('/','FrontController@index');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
 Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
 Route::get('/productos/{categoria}', [App\Http\Controllers\FrontController::class, 'categoria']);
 Route::get('/productos/{categoria}/{subcategoria}', [App\Http\Controllers\FrontController::class, 'subcategoria']);
@@ -40,8 +46,4 @@ Route::group(['prefix'=>'cliente','middleware'=>'role:cliente'], function(){
 });
 
 
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

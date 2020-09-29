@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Portadas;
 use App\Models\Productos;
 use App\Models\Categorias;
-use App\Models\Subcategorias;;
+use App\Models\Subcategorias;
+use App\Models\Publicaciones;
 
 class FrontController extends Controller
 {
@@ -34,5 +35,11 @@ class FrontController extends Controller
         $producto = Productos::whereSlug($producto)->first();
         $productos = Productos::whereSubcategorias_id($producto->subcategorias_id);
         return view('front.producto',compact('producto','productos'));
+    }
+
+    public function publicacion($slug){
+        $publicacion = Publicaciones::whereSlug($slug)->first();
+        $publicacion->increment('visitas');
+        return view('front.publicacion',compact('publicacion'));
     }
 }
