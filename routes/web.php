@@ -41,6 +41,9 @@ Route::group(['prefix'=>'admin','middleware'=>'role:admin'], function(){
 });
 
 Route::post('/carrito/agregar',[App\Http\Controllers\CarritoController::class, 'agregar'])->name('carrito.agregar');
+Route::get('/carrito/checkout',[App\Http\Controllers\CarritoController::class, 'checkout'])->name('carrito.checkout');
+Route::post('/carrito/remover',[App\Http\Controllers\CarritoController::class, 'remover'])->name('carrito.remover');
+Route::post('/carrito/vaciar',[App\Http\Controllers\CarritoController::class, 'vaciar'])->name('carrito.vaciar');
 
 Route::group(['prefix'=>'cliente','middleware'=>'role:cliente'], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

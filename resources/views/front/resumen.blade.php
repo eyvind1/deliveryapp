@@ -5,6 +5,7 @@
             {{$item->name}}...{{$item->price}}
         @endforeach
         Total S/. {{number_format(Cart::getSubTotal(),2)}}
+        <a href="/carrito/checkout" class="btn btn-success"> Ver Carrito</a>
     @else
         <p>Carrito vacio</p>        
     @endif

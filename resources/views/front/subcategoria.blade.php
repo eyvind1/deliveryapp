@@ -18,6 +18,13 @@
                               </div>
                               <div class="div-card-footer bg-warning">
                                 <a href="/{{$r->slug}}" class="btn btn-success rounded-pill btn-block">{{$r->nombre}}</a>
+                                <form action="{{route('carrito.agregar')}}" method="post">
+                                  @csrf
+                                  <input type="hidden" name="id" value="{{$r->id}}">
+                                  <input type="number" value="1" name="quantity" min="1" max="10" class="mt-2 mb-2">
+                                  <input type="submit" value="AGREGAR" class="btn btn-info rounded-pill mx-auto d-block">
+                              
+                                </form>
                               </div>
                           </div>
                     </div>

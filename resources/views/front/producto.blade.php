@@ -15,8 +15,15 @@
               
             
         </div>
-        <div class="col-sm-5">
-          <a href="" class="btn btn-success align-ident-center">Comprar</a>
+        <div class="col-sm-5 text-center">
+          
+          <form action="{{route('carrito.agregar')}}" method="post">
+            @csrf
+            <input type="hidden" name="id" value="{{$producto->id}}">
+            <input type="number" value="1" name="quantity" min="1" max="10" class="mt-2 mb-2">
+            <input type="submit" value="AGREGAR" class="btn btn-info rounded-pill mx-auto d-block">
+        
+          </form>
         </div>
         @include('front.resumen')
         <div class="col-sm-12">

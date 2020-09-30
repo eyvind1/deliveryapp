@@ -20,4 +20,18 @@ class CarritoController extends Controller
         );
         return back()->with('success',"$producto->nombre ! se ha agregado al carrito de ompra");
     }
+
+    public function checkout(){
+        return view('front.checkout');
+    }
+    public function remover(Request $request){
+        $producto = Productos::find($request->id);
+        Cart::remove(['id'=>$request->id]);
+        return back()->with('success'," ! Producto eliminado");
+    }
+
+    public function vaciar(){
+        Cart::clear();
+        return back()->with('success'," ! Carrito vacio ");
+    }
 }
