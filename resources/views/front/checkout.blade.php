@@ -46,10 +46,7 @@
                 </form>
             </div>
             <div class="col-sm-6 p-4">
-                <form action="" method="post">
-                    @csrf
-                    <button type="submit" class="btn btn-success rounded-pill mx-auto d-block">Realizar Pedido</button>
-                </form>
+                <a href="/login" class="btn btn-success"> Procesar Pedido</a>
             </div>
         @else
             <div class="jumbotron text-center w-100">

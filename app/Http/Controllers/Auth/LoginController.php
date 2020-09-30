@@ -45,7 +45,7 @@ class LoginController extends Controller
             return "/admin/usuarios";
         }
         if(Auth::user()->hasRole('cliente')){
-            return "/cliente/home";    
+            return "/carrito/procesopedido";    
         }
         return "/";
     }
