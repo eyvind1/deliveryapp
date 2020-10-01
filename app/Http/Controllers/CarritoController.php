@@ -54,6 +54,7 @@ class CarritoController extends Controller
                 $detalle->cantidad = $r->quantity;
                 $detalle->productos_id = $r->id;
                 $detalle->pedidos_id = $pedido->id;
+                $detalle->save();
             endforeach;
             Cart::clear();
             return view("front.confirmacion")->with(['pedido'=>$pedido->codigo]);

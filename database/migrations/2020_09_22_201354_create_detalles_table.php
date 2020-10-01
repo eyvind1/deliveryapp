@@ -20,6 +20,7 @@ class CreateDetallesTable extends Migration
             $table->foreign('productos_id')->references('id')->on('productos');
             $table->integer('pedidos_id')->unsigned();
             $table->foreign('pedidos_id')->references('id')->on('pedidos');
+            $table->timestamps();
         });
     }
 
