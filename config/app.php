@@ -180,6 +180,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         Darryldecode\Cart\CartServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*
@@ -236,6 +237,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class, 
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];
