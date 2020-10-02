@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
 
@@ -20,11 +21,22 @@ class User extends Authenticatable
         'name', 'email', 'celular', 'direccion', 'estado', 'tipo', 'password',
     ];
 
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
     /**
-     * The attributes that should be hidden for arrays.
+     * Return a key value array, containing any custom claims to be added to the JWT.
      *
-     * @var array
+     * @return array
      */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    
     protected $hidden = [
         'password', 'remember_token',
     ];
