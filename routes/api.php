@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//auth jwt
+
+Route::post('register',[Api\UserController::class,'register']);
+Route::post('login',[Api\UserController::class,'login']);
+Route::get('logout',[Api\UserController::class,'logout']);
+Route::get('user',[Api\UserController::class,'getCurrentUser']);
+
+Route::post('update',[Api\UserController::class,'update']);
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
