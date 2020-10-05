@@ -14,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//enviar productos
+Route::get('enviarproductos',[App\Http\Controllers\Api\JsonController::class,'enviarproductos']);
+Route::post('recibirpedido',[App\Http\Controllers\Api\JsonController::class,'recibirpedido']);
+
 //auth jwt
 
-Route::post('register',[Api\UserController::class,'register']);
-Route::post('login',[Api\UserController::class,'login']);
-Route::get('logout',[Api\UserController::class,'logout']);
-Route::get('user',[Api\UserController::class,'getCurrentUser']);
+Route::post('register',[App\Http\Controllers\Api\UserController::class,'register']);
+Route::post('login',[App\Http\Controllers\Api\UserController::class,'login']);
+Route::get('logout',[App\Http\Controllers\Api\UserController::class,'logout']);
+Route::get('user',[App\Http\Controllers\Api\UserController::class,'getCurrentUser']);
 
-Route::post('update',[Api\UserController::class,'update']);
+Route::post('update',[App\Http\Controllers\Api\UserController::class,'update']);
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
